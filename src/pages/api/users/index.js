@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     if (result) return res.status(200).json(result)
   }
   if (req.method == 'GET') {
-    const result = await User.find(req.body)
+    const result = await User.find()
     if (!result) return res.status(500).json({ message: "User could not be found" })
     if (result) return res.status(200).json(result)
   }
