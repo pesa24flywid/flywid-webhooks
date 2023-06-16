@@ -6,7 +6,7 @@ import Connect from "lib/utils/mongoose";
 export default async function handler(req, res) {
   await Connect()
   if (req.method == 'POST') {
-    const result = await User.create(req.body)
+    const result = await User.create(JSON.parse(req.body))
     if (!result) return res.status(500).json({ message: "User could not be added" })
     if (result) return res.status(200).json(result)
   }
